@@ -12,16 +12,16 @@ package com.TimBuchalka;
 public class DecimalComparator {
 
     public static boolean areEqualByThreeDecimalPlaces(double one, double two) {
-        int a = (int) one * 1000;
-        int b = (int) two * 1000;
-
-        if(a == b){
-            System.out.println(true);
-            return true;
+        if(one < 0 && two < 0) {
+            double c = Math.ceil(one * 1000) / 1000;
+            double d = Math.ceil(two * 1000) / 1000;
+            return c == d;
+        } else if(one > 0 && two > 0){
+            double c = Math.floor(one * 1000) / 1000;
+            double d = Math.floor(two * 1000) / 1000;
+            return c == d;
+        } else {
+             return one == two;
         }
-        else
-
-            System.out.println(false);
-        return false;
     }
 }
